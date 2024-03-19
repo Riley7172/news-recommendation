@@ -308,9 +308,9 @@ def transform_entity_embedding(source, target, entity2int_path):
 
 
 if __name__ == '__main__':
-    train_dir = '/content/news-recommendation/train'
-    val_dir = '/content/news-recommendation/val'
-    test_dir = '/content/news-recommendation/test'
+    train_dir = './train'
+    val_dir = './val'
+    test_dir = './test'
     
     print('Process data for training')
 
