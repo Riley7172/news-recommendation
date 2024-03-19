@@ -17,8 +17,7 @@ import datetime
 try:
     Model = getattr(importlib.import_module(f"model.{model_name}"), model_name)
     config = getattr(importlib.import_module('config'), f"{model_name}Config")
-    print(Model)
-    print(config)
+
 except AttributeError:
     print(f"{model_name} not included!")
     exit()
@@ -116,7 +115,7 @@ def train():
                           'data/train/news_parsed.tsv')
 
     print(f"Load training dataset with size {len(dataset)}.")
-
+    print(config.num_workers)
     dataloader = iter(
         DataLoader(dataset,
                    batch_size=config.batch_size,
