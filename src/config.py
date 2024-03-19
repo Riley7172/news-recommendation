@@ -1,8 +1,10 @@
 import os
 
-model_name = 'DKN'
+model_name = os.environ['MODEL_NAME'] if 'MODEL_NAME' in os.environ else 'NRMS'
 # Currently included model
-
+assert model_name in [
+    'NRMS', 'NAML', 'LSTUR', 'DKN', 'HiFiArk', 'TANR', 'Exp1'
+]
 
 
 class BaseConfig():
@@ -25,10 +27,10 @@ class BaseConfig():
     negative_sampling_ratio = 2  # K
     dropout_probability = 0.2
     # Modify the following by the output of `src/dataprocess.py`
-    num_words = 1 + 101221
-    num_categories = 1 + 295
-    num_entities = 1 + 21842
-    num_users = 1 + 711222
+    num_words = 1 + 70975
+    num_categories = 1 + 274
+    num_entities = 1 + 12957
+    num_users = 1 + 50000
     word_embedding_dim = 300
     category_embedding_dim = 100
     # Modify the following only if you use another dataset
@@ -36,14 +38,11 @@ class BaseConfig():
     # For additive attention
     query_vector_dim = 200
 
-    class DKNConfig(BaseConfig):
-    dataset_attributes = {"news": ['title', 'title_entities'], "record": []}
-    # For CNN
-    num_filters = 50
-    window_sizes = [2, 3, 4]
-    # TODO: currently context is not available
-    use_context = False
 
+class NRMSConfig(BaseConfig):
+    dataset_attributes = {"news": ['title'], "record": []}
+    # For multi-head self-attention
+    num_attention_heads = 15
 
 
 class NAMLConfig(BaseConfig):
