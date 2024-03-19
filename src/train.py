@@ -24,7 +24,7 @@ except AttributeError:
     exit()
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-
+print(device)
 
 class EarlyStopping:
     def __init__(self, patience=5):
