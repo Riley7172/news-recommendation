@@ -36,11 +36,14 @@ class BaseConfig():
     # For additive attention
     query_vector_dim = 200
 
+    class DKNConfig(BaseConfig):
+    dataset_attributes = {"news": ['title', 'title_entities'], "record": []}
+    # For CNN
+    num_filters = 50
+    window_sizes = [2, 3, 4]
+    # TODO: currently context is not available
+    use_context = False
 
-class NRMSConfig(BaseConfig):
-    dataset_attributes = {"news": ['title'], "record": []}
-    # For multi-head self-attention
-    num_attention_heads = 15
 
 
 class NAMLConfig(BaseConfig):
