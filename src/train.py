@@ -123,7 +123,7 @@ def train():
                    shuffle=True,
                    num_workers=config.num_workers,
                    drop_last=True,
-                   pin_memory=True))
+                   pin_memory=False))
     if model_name != 'Exp1':
         criterion = nn.CrossEntropyLoss()
         optimizer = torch.optim.Adam(model.parameters(),
