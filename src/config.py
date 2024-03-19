@@ -1,10 +1,8 @@
 import os
 
-model_name = os.environ['MODEL_NAME'] if 'MODEL_NAME' in os.environ else 'NRMS'
+model_name = 'DKN'
 # Currently included model
-assert model_name in [
-    'NRMS', 'NAML', 'LSTUR', 'DKN', 'HiFiArk', 'TANR', 'Exp1'
-]
+
 
 
 class BaseConfig():
